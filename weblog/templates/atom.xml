@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Fluyy's Blog</title>
+	<link href="http://fluyy.net/atom.xml" rel="self"/>
+	<link href="http://fluyy.net"/>
+	<updated>{{ lasttime }}</updated>
+	<id>http://fluyy.net</id>
+	<author>
+		<name>fluyy</name>
+		<email>tulneer(aT)gmail(dOt)com</email>
+	</author>{% for i in article %}
+	<entry>
+		<title>{{ i.title }}</title>
+		<link href="http://fluyy.net/{{ i.url }}"/>
+		<updated>{{ i.date }} 00:00:00-07:00</updated>
+		<id>http://fluyy.net/{{ i.url }}</id>
+		<content type="html">
+			 {{markdown(i.content)}}
+		</content>
+	</entry>{% end %}
+</feed>

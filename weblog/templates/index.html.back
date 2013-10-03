@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% autoescape None %}
+{% block title %}{{ title }}{% end %}
+{% block head %}{{title }}{% end %}
+{% block content %}
+{% for art in article %}
+{% module ArtList(art,tags) %}
+{% end %}
+{% end %}

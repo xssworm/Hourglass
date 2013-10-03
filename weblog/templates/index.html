@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% autoescape None %}
+{% block title %}{{ title }}{% end %}
+{% block head %}{{title }}{% end %}
+{% block content %}
+{% for i in article %}
+<div class="well"><h3><a href="/{{i.url}}">{{ i.title }}</a></h3>
+{{ markdown(i.content)}}
+<ul class="pagination-right"><span class="label"><a href='/{{i.url}}'>ReadMore</a></span></ul></div>
+{% end %}
+{% end %}
+{% block right %}
+{%include 'themes/category.html'%}
+{% end %}

@@ -1,0 +1,11 @@
+<div class="well"><h3><a href="/{{article.url}}">{{ article.title }}</a></h3>
+{{article.content}}
+<ul class="pagination">
+{% if len(article.tags)!=0 %}
+<span class="badge"><i class="icon-tags"></i>标签</span>
+{% for tag in article.tags%}
+	<span class="badge"><a href="/tags/{{tag}}">{{tag}}</a></span>
+{% end %}
+{% end %}
+<ul class="pull-right"><span class="label"><a href='/{{article.url}}'>ReadMore</a></span></ul></ul>
+</div>

@@ -1,14 +1,12 @@
 {% extends "base.html" %}
 {% autoescape None %}
 {% block title %}{{article.title}}{% end %}
-{% block head %}{{ article.title}}{% end %}
 {% block content %}
-<div>
-<p>{{ markdown(article.content) }}</p>
-<div class=" alert-info">声明：转载请注明来自Fluyy的博客:<a href="http://fluyy.net/{{article.url}}">{{ article.title}}</a></div><hr></div>
-{%include 'themes/comments'%}
-{% end %}
-{% block right %}
-<div class="well"><h3>Published</h3><div class="date"><span><i class="icon-time"></i>{{ article.date }}</span></div></div>
-{%include 'themes/category.html'%}
+<div class="panel panel-success">
+<div class="panel-heading"><h4>{{article.title}}</h4></div>
+<div class="panel-body">
+{{ markdown(article.content)}}
+<div class="text-info">声明：转载请注明来自Fluyy的博客:<a href="http://fluyy.net/{{article.url}}">{{ article.title}}</a></div>
+</div>{%include 'themes/comments'%}
+</div> 
 {% end %}

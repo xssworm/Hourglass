@@ -1,14 +1,18 @@
 {% extends "base.html" %}
 {% autoescape None %}
+{% block description %}我手写我心,记录我的生活,我的青春{% end %}
 {% block title %}{{ title }}{% end %}
-{% block head %}{{title }}{% end %}
 {% block content %}
 {% for i in article %}
-<div class="well"><h3><a href="/{{i.url}}">{{ i.title }}</a></h3>
+<div class="panel panel-info">
+<div class="panel-body"><h4><a href="/{{ i.url }}">{{ i.title }}</a></h4>
 {{ markdown(i.content)}}
-<ul class="pagination-right"><span class="label"><a href='/{{i.url}}'>ReadMore</a></span></ul></div>
+</div>
+<div class="text-right panel-footer">
+<i class="glyphicon glyphicon-time"></i><small> Date:{{i.date}}&nbsp&nbsp&nbsp&nbsp</small>
+{% for cate in category %}{% if cate.cid == i.cid %}
+<i class="glyphicon glyphicon-book"></i><small> Category:{{cate.name}}&nbsp&nbsp&nbsp&nbsp</small>{% end %}{%end%}
+<i class="glyphicon glyphicon-user"></i><small> Views:{{i.vis}}&nbsp&nbsp</small>
+</div></div>
 {% end %}
-{% end %}
-{% block right %}
-{%include 'themes/category.html'%}
 {% end %}
